@@ -19,6 +19,23 @@
 
 @media (max-width: 768px) {
 
+    /* ---------- BLINDAJE ANTI-COPIA-VIEJA ----------
+       El HTML de la pagina a veces trae una copia antigua de este
+       mismo fix incrustada en un <style> propio (visto: v23), que
+       carga DESPUES de este userstyle. Como ambas usan !important,
+       ante un empate de especificidad gana la ultima en cargar, no
+       esta hoja de estilos. Repetir la clase ".top-nav__dropdown"
+       duplica su especificidad (0,2,0 en vez de 0,1,0) sin inventar
+       clases nuevas, así esta regla gana pase lo que pase con el
+       orden de carga de la copia vieja. */
+    .top-nav__main-menus.mobile .top-nav__dropdown.top-nav__dropdown.open ul,
+    .top-nav__main-menus.mobile .top-nav__dropdown.top-nav__dropdown:focus-within ul,
+    .top-nav__icon-bar .top-nav__dropdown.top-nav__dropdown.open ul,
+    .top-nav__icon-bar .top-nav__dropdown.top-nav__dropdown:focus-within ul {
+        display: flex !important;
+        position: static !important;
+    }
+
     /* ---------- BASE ---------- */
     html, body {
         overflow-x: hidden !important;
@@ -573,7 +590,9 @@
     .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
     .top-nav__main-menus.mobile .top-nav__dropdown.open ul.sf-hidden,
-    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul.sf-hidden {
+    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul.sf-hidden,
+    .top-nav__main-menus.mobile .top-nav__dropdown:has(a:focus) ul,
+    .top-nav__main-menus.mobile .top-nav__dropdown:has(a[aria-expanded="true"]) ul {
         display: flex !important;
     }
     .top-nav__main-menus.mobile .top-nav__dropdown ul li {
@@ -946,7 +965,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix v4" !important;
+        content: "milnueve-mobile-fix v5" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
