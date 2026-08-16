@@ -180,13 +180,23 @@
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
         background: #0a0a0a !important;
-        z-index: 9998 !important;
+        z-index: 999999 !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: stretch !important;
         padding: 0 0 40px 0 !important;
         box-sizing: border-box !important;
         gap: 0 !important;
+    }
+    /* milnueve trae overlays de tema fijos a pantalla completa
+       (scan-lines, hud-boot-scan) en position:fixed con z-index
+       hasta 9998, empatando con el panel y robando el primer tap
+       en touch. Los apagamos mientras el menu esta abierto. */
+    .top-nav.mobile ~ * ::before,
+    .top-nav.mobile ~ * ::after,
+    body:has(.top-nav.mobile) ::before,
+    body:has(.top-nav.mobile) ::after {
+        pointer-events: none !important;
     }
     .top-nav.mobile > .top-nav__left,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__left {
@@ -217,7 +227,7 @@
         position: fixed !important;
         top: 14px !important;
         right: 14px !important;
-        z-index: 10000 !important;
+        z-index: 1000000 !important;
         font-size: 1.3rem !important;
         color: #fff !important;
         background: rgba(255,255,255,0.08) !important;
@@ -914,11 +924,11 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix v1" !important;
+        content: "milnueve-mobile-fix v2" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
-        z-index: 99999 !important;
+        z-index: 1000001 !important;
         font-family: monospace !important;
         font-size: 9px !important;
         color: rgba(255,255,255,0.35) !important;
