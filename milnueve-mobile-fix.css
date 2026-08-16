@@ -70,6 +70,10 @@
         display: flex !important;
         align-items: center !important;
     }
+    .top-nav.mobile img,
+    .top-nav:has(> .top-nav__main-menus.mobile) img {
+        max-height: 40px !important;
+    }
     .top-nav__branding img {
         height: 24px !important;
     }
@@ -413,6 +417,13 @@
     .top-nav__icon-bar .top-nav__dropdown.open > a::after,
     .top-nav__icon-bar .top-nav__dropdown:focus-within > a::after {
         transform: rotate(180deg);
+    }
+    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch img {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        flex: 0 0 auto !important;
     }
     .top-nav__profile-image {
         width: 32px !important;
@@ -935,7 +946,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix v3" !important;
+        content: "milnueve-mobile-fix v4" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
