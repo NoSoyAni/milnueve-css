@@ -503,7 +503,6 @@
         flex-shrink: 0 !important;
     }
     .top-nav__main-menus.mobile > li {
-        touch-action: manipulation !important;
         width: 100% !important;
         position: static !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
@@ -517,7 +516,7 @@
     }
     .top-nav__main-menus.mobile > li > a.top-nav__dropdown--touch,
     .top-nav__main-menus.mobile > li > a:not(.top-nav__dropdown--nontouch):not(.top-nav__dropdown--touch) {
-        touch-action: manipulation !important;
+        touch-action: none !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
@@ -571,20 +570,12 @@
         transform: none !important;
         z-index: auto !important;
         float: none !important;
-        will-change: display !important;
     }
     .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
     .top-nav__main-menus.mobile .top-nav__dropdown.open ul.sf-hidden,
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul.sf-hidden {
         display: flex !important;
-        /* fuerza repintado inmediato del bloque pesado (fondo+sombra+radio),
-           en vez de esperar al siguiente evento que dispare paint */
-        animation: milnueve-force-paint 0.001s linear !important;
-    }
-    @keyframes milnueve-force-paint {
-        from { outline: 1px solid transparent; }
-        to { outline: 0 solid transparent; }
     }
     .top-nav__main-menus.mobile .top-nav__dropdown ul li {
         width: 100% !important;
