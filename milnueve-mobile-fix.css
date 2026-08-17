@@ -234,11 +234,16 @@
         padding: 12px !important;
         box-sizing: border-box !important;
     }
-    .top-nav.mobile,
-    .top-nav:has(> .top-nav__main-menus.mobile) {
+    /* fix real: el contenedor ANIDADO (main-menus) es el que no repinta,
+       no solo el panel padre. Forzamos su propio layer + reflow */
+    .top-nav__main-menus.mobile {
+        transform: translateZ(0) !important;
         contain: layout !important;
     }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul {
+    .top-nav__main-menus.mobile > li {
+        transform: translateZ(0) !important;
+    }
+    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul {
         animation: milnueve-repaint-kick 0.01s linear !important;
     }
     @keyframes milnueve-repaint-kick {
@@ -583,9 +588,16 @@
     }
     .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
+    .top-nav__main-menus.mobile .top-nav__dropdown:active ul,
     .top-nav__main-menus.mobile .top-nav__dropdown.open ul.sf-hidden,
-    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul.sf-hidden {
+    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul.sf-hidden,
+    .top-nav__main-menus.mobile .top-nav__dropdown:active ul.sf-hidden {
         display: flex !important;
+    }
+    /* diagnóstico: si esto SÍ funciona al tap, confirma que el problema
+       es foco, no reflow — borde rojo visible mientras se toca */
+    .top-nav__main-menus.mobile .top-nav__dropdown--touch:active {
+        outline: 2px solid red !important;
     }
     .top-nav__main-menus.mobile .top-nav__dropdown ul li {
         width: 100% !important;
