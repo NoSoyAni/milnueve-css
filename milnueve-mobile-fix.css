@@ -168,6 +168,13 @@
     .top-nav__main-menus:not(.mobile) {
         display: none !important;
     }
+    /* milnueve: forzamos apertura por click real (touch), no solo
+       :focus-within, porque en algunos webviews el tap no dispara
+       focus-within de forma fiable en <li> */
+    .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
+    .top-nav__icon-bar .top-nav__dropdown.open ul {
+        display: flex !important;
+    }
 
     .top-nav.mobile,
     .top-nav:has(> .top-nav__main-menus.mobile) {
@@ -226,27 +233,6 @@
         font-size: 1rem !important;
         padding: 12px !important;
         box-sizing: border-box !important;
-    }
-    /* fix real: el contenedor ANIDADO (main-menus) es el que no repinta,
-       no solo el panel padre. Forzamos su propio layer + reflow */
-    .top-nav__main-menus.mobile {
-        transform: translateZ(0) !important;
-    }
-    .top-nav__main-menus.mobile > li {
-        transform: translateZ(0) !important;
-    }
-    /* EL fix real: el que necesita repintarse es el contenedor con
-       overflow-y:auto (.top-nav.mobile), no el <ul> del submenu.
-       Cuando CUALQUIER dropdown gana foco, forzamos kick en el padre
-       scrollable para que recalcule scrollHeight/clip. Requiere :has()
-       (Firefox >=121, ya soportado en Android actual). */
-    .top-nav.mobile:has(.top-nav__dropdown:focus-within) {
-        animation: milnueve-scroll-kick 0.01s linear !important;
-        overflow-anchor: none !important;
-    }
-    @keyframes milnueve-scroll-kick {
-        from { padding-bottom: 40.001px; }
-        to { padding-bottom: 40px; }
     }
     .top-nav.mobile > .top-nav__toggle,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__toggle {
@@ -406,7 +392,6 @@
         display: none !important;
     }
     .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch {
-        touch-action: manipulation !important;
         position: relative !important;
         display: flex !important;
         align-items: center !important;
@@ -518,7 +503,6 @@
         flex-shrink: 0 !important;
     }
     .top-nav__main-menus.mobile > li {
-        touch-action: manipulation !important;
         width: 100% !important;
         position: static !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
@@ -529,16 +513,9 @@
 
     .top-nav__main-menus.mobile > li > a.top-nav__dropdown--nontouch {
         display: none !important;
-        pointer-events: none !important;
-        visibility: hidden !important;
-        position: absolute !important;
-        width: 0 !important;
-        height: 0 !important;
-        overflow: hidden !important;
     }
     .top-nav__main-menus.mobile > li > a.top-nav__dropdown--touch,
     .top-nav__main-menus.mobile > li > a:not(.top-nav__dropdown--nontouch):not(.top-nav__dropdown--touch) {
-        touch-action: manipulation !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
@@ -574,7 +551,7 @@
     .top-nav__main-menus.mobile .top-nav__dropdown ul {
         position: static !important;
         list-style: none !important;
-        display: flex !important;
+        display: none !important;
         flex-direction: column !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -592,11 +569,12 @@
         transform: none !important;
         z-index: auto !important;
         float: none !important;
-        /* siempre visible: no depende de tap/focus/active,
-           imposible que glitchee porque no hay estado que cambiar */
-        max-height: none !important;
-        overflow: visible !important;
-        opacity: 1 !important;
+    }
+    .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
+    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
+    .top-nav__main-menus.mobile .top-nav__dropdown.open ul.sf-hidden,
+    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul.sf-hidden {
+        display: flex !important;
     }
     .top-nav__main-menus.mobile .top-nav__dropdown ul li {
         width: 100% !important;
@@ -968,7 +946,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix TEST-1926" !important;
+        content: "milnueve-mobile-fix v4" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
