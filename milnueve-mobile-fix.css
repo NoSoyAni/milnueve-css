@@ -582,7 +582,7 @@
     .top-nav__main-menus.mobile .top-nav__dropdown ul {
         position: static !important;
         list-style: none !important;
-        display: none !important;
+        display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -600,6 +600,29 @@
         transform: none !important;
         z-index: auto !important;
         float: none !important;
+        /* acordeon real: colapsado por altura, no por display,
+           asi que transiciona sin depender de focus si algo falla */
+        max-height: 0 !important;
+        overflow: hidden !important;
+        margin-bottom: 0 !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        opacity: 0 !important;
+        transition: max-height 0.01s linear, opacity 0.01s linear !important;
+    }
+    /* disparador 1: foco real (teclado, algunos moviles) */
+    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
+    /* disparador 2: pulsacion activa sostenida */
+    .top-nav__main-menus.mobile .top-nav__dropdown:active ul,
+    .top-nav__main-menus.mobile .top-nav__dropdown--touch:active ~ ul,
+    /* disparador 3: hover residual que dejan algunos android al levantar el dedo */
+    .top-nav__main-menus.mobile .top-nav__dropdown:hover ul {
+        max-height: 1000px !important;
+        opacity: 1 !important;
+        overflow: visible !important;
+        margin: 4px 0 14px 0 !important;
+        padding: 6px !important;
+        transition: max-height 0.01s linear, opacity 0.01s linear, overflow 0s linear 0.2s !important;
     }
     .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
