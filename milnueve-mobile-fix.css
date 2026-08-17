@@ -250,6 +250,19 @@
         from { opacity: 0.9999; }
         to { opacity: 1; }
     }
+    /* EL fix real: el que necesita repintarse es el contenedor con
+       overflow-y:auto (.top-nav.mobile), no el <ul> del submenu.
+       Cuando CUALQUIER dropdown gana foco, forzamos kick en el padre
+       scrollable para que recalcule scrollHeight/clip. Requiere :has()
+       (Firefox >=121, ya soportado en Android actual). */
+    .top-nav.mobile:has(.top-nav__dropdown:focus-within) {
+        animation: milnueve-scroll-kick 0.01s linear !important;
+        overflow-anchor: none !important;
+    }
+    @keyframes milnueve-scroll-kick {
+        from { padding-bottom: 40.001px; }
+        to { padding-bottom: 40px; }
+    }
     .top-nav.mobile > .top-nav__toggle,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__toggle {
         position: fixed !important;
