@@ -604,20 +604,14 @@
     }
     /* disparador 1: foco real (teclado, algunos moviles) */
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
-    /* disparador 2: pulsacion activa sostenida */
-    .top-nav__main-menus.mobile .top-nav__dropdown:active ul,
-    .top-nav__main-menus.mobile .top-nav__dropdown--touch:active ~ ul {
+    /* disparador 2: pulsacion activa sostenida (mismo mecanismo que Helado) */
+    .top-nav__main-menus.mobile .top-nav__dropdown:active ul {
         max-height: 1000px !important;
         opacity: 1 !important;
         overflow: visible !important;
         margin: 4px 0 14px 0 !important;
         padding: 6px !important;
         transition: max-height 0.01s linear 0s, opacity 0.01s linear 0s !important;
-    }
-    /* diagnóstico: si esto SÍ funciona al tap, confirma que el problema
-       es foco, no reflow — borde rojo visible mientras se toca */
-    .top-nav__main-menus.mobile .top-nav__dropdown--touch:active {
-        outline: 2px solid red !important;
     }
     .top-nav__main-menus.mobile .top-nav__dropdown ul li {
         width: 100% !important;
