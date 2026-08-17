@@ -238,7 +238,6 @@
        no solo el panel padre. Forzamos su propio layer + reflow */
     .top-nav__main-menus.mobile {
         transform: translateZ(0) !important;
-        contain: layout !important;
     }
     .top-nav__main-menus.mobile > li {
         transform: translateZ(0) !important;
