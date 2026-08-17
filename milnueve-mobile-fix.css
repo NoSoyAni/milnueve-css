@@ -620,9 +620,7 @@
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
     /* disparador 2: pulsacion activa sostenida */
     .top-nav__main-menus.mobile .top-nav__dropdown:active ul,
-    .top-nav__main-menus.mobile .top-nav__dropdown--touch:active ~ ul,
-    /* disparador 3: hover residual que dejan algunos android al levantar el dedo */
-    .top-nav__main-menus.mobile .top-nav__dropdown:hover ul {
+    .top-nav__main-menus.mobile .top-nav__dropdown--touch:active ~ ul {
         max-height: 1000px !important;
         opacity: 1 !important;
         overflow: visible !important;
