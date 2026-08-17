@@ -614,7 +614,8 @@
         padding-top: 0 !important;
         padding-bottom: 0 !important;
         opacity: 0 !important;
-        transition: max-height 0.01s linear, opacity 0.01s linear !important;
+        transition: max-height 0.01s linear 0s, opacity 0.01s linear 0s,
+                    max-height 0.01s linear 6s, opacity 0.01s linear 6s !important;
     }
     /* disparador 1: foco real (teclado, algunos moviles) */
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
