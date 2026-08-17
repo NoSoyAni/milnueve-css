@@ -168,13 +168,6 @@
     .top-nav__main-menus:not(.mobile) {
         display: none !important;
     }
-    /* milnueve: forzamos apertura por click real (touch), no solo
-       :focus-within, porque en algunos webviews el tap no dispara
-       focus-within de forma fiable en <li> */
-    .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
-    .top-nav__icon-bar .top-nav__dropdown.open ul {
-        display: flex !important;
-    }
 
     .top-nav.mobile,
     .top-nav:has(> .top-nav__main-menus.mobile) {
@@ -241,13 +234,6 @@
     }
     .top-nav__main-menus.mobile > li {
         transform: translateZ(0) !important;
-    }
-    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul {
-        animation: milnueve-repaint-kick 0.01s linear !important;
-    }
-    @keyframes milnueve-repaint-kick {
-        from { opacity: 0.9999; }
-        to { opacity: 1; }
     }
     /* EL fix real: el que necesita repintarse es el contenedor con
        overflow-y:auto (.top-nav.mobile), no el <ul> del submenu.
@@ -614,8 +600,7 @@
         padding-top: 0 !important;
         padding-bottom: 0 !important;
         opacity: 0 !important;
-        transition: max-height 0.01s linear 0s, opacity 0.01s linear 0s,
-                    max-height 0.01s linear 6s, opacity 0.01s linear 6s !important;
+        transition: max-height 0.01s linear 6s, opacity 0.01s linear 6s !important;
     }
     /* disparador 1: foco real (teclado, algunos moviles) */
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
@@ -627,15 +612,7 @@
         overflow: visible !important;
         margin: 4px 0 14px 0 !important;
         padding: 6px !important;
-        transition: max-height 0.01s linear, opacity 0.01s linear, overflow 0s linear 0.2s !important;
-    }
-    .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
-    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
-    .top-nav__main-menus.mobile .top-nav__dropdown:active ul,
-    .top-nav__main-menus.mobile .top-nav__dropdown.open ul.sf-hidden,
-    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul.sf-hidden,
-    .top-nav__main-menus.mobile .top-nav__dropdown:active ul.sf-hidden {
-        display: flex !important;
+        transition: max-height 0.01s linear 0s, opacity 0.01s linear 0s !important;
     }
     /* diagnóstico: si esto SÍ funciona al tap, confirma que el problema
        es foco, no reflow — borde rojo visible mientras se toca */
