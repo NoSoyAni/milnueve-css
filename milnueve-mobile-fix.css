@@ -421,6 +421,7 @@
         display: none !important;
     }
     .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch {
+        touch-action: manipulation !important;
         position: relative !important;
         display: flex !important;
         align-items: center !important;
@@ -532,6 +533,7 @@
         flex-shrink: 0 !important;
     }
     .top-nav__main-menus.mobile > li {
+        touch-action: manipulation !important;
         width: 100% !important;
         position: static !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
@@ -545,6 +547,7 @@
     }
     .top-nav__main-menus.mobile > li > a.top-nav__dropdown--touch,
     .top-nav__main-menus.mobile > li > a:not(.top-nav__dropdown--nontouch):not(.top-nav__dropdown--touch) {
+        touch-action: manipulation !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
