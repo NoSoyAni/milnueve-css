@@ -133,7 +133,7 @@
         font-weight:900; font-size:.7rem; opacity:.5; margin-left:auto;
         transition:transform .2s ease;
     }
-    .top-nav__icon-bar .top-nav__dropdown:has(> a:focus) > a.top-nav__dropdown--touch::after{
+    .top-nav__icon-bar .top-nav__dropdown:hover > a.top-nav__dropdown--touch::after{
         transform:rotate(180deg);
     }
     .top-nav__profile-image{ width:30px !important; height:30px !important; border-radius:50% !important; flex:0 0 auto !important; }
@@ -145,8 +145,7 @@
         background:#ffffff0a !important; border:1px solid var(--mn-border,#313244) !important;
         border-radius:12px !important;
     }
-    .top-nav__icon-bar .top-nav__dropdown:has(> a:focus) > ul,
-    .top-nav__icon-bar .top-nav__dropdown:has(> ul:focus-within) > ul{
+    .top-nav__icon-bar .top-nav__dropdown:hover > ul{
         display:flex !important;
     }
     .top-nav__icon-bar .top-nav__dropdown > ul > li > a,
@@ -162,9 +161,10 @@
 
     /* ===================================================================
        MENU PRINCIPAL: Torrents / Comunidad / Soporte / Otro
-       Acordeon vertical con :focus-within (touch = focus persistente
-       al tocar el <a tabindex=0>). Empuja contenido, overflow:visible
-       dentro del padre (que ya tiene su propio scroll general).
+       Acordeon vertical con :hover (touch = hover persistente al tocar,
+       igual que ya usa el propio CSS nativo de Milnueve). Empuja
+       contenido, overflow:visible dentro del padre (que ya tiene su
+       propio scroll general).
        =================================================================== */
     .top-nav__main-menus.mobile{
         flex-direction:column !important; width:100% !important;
@@ -188,8 +188,8 @@
         font-weight:900; font-size:.75rem; opacity:.5; margin-left:8px;
         transition:transform .2s ease;
     }
-    .top-nav__main-menus.mobile > li:has(> a:focus)::after,
-    .top-nav__main-menus.mobile > li:has(> a:focus) > a.top-nav__dropdown--touch::after{
+    .top-nav__main-menus.mobile > li:hover::after,
+    .top-nav__main-menus.mobile > li:hover > a.top-nav__dropdown--touch::after{
         transform:rotate(180deg);
     }
 
@@ -206,14 +206,16 @@
            al li equivocado y todo el acordeon se cierra de golpe */
         pointer-events:auto !important;
     }
-    /* :focus en vez de :focus-within sobre el propio <a tabindex=0>:
-       el foco se queda fijo en el elemento que el usuario tocó y no
-       se pierde al hacer scroll o tocar un enlace hijo, porque el
-       enlace hijo hereda el foco del ancestro solo mientras el dedo
-       sigue sobre el arbol; usamos :has() como refuerzo para navegadores
-       modernos y :focus-within como fallback, nunca al reves */
-    .top-nav__main-menus.mobile .top-nav__dropdown:has(> a:focus) > ul,
-    .top-nav__main-menus.mobile .top-nav__dropdown:has(> ul:focus-within) > ul{
+    /* :hover en vez de :focus/:focus-within: en touch, el navegador
+       simula :hover en el primer tap y lo MANTIENE hasta que el
+       usuario toca fuera del elemento -> exactamente el comportamiento
+       de acordeon persistente que necesitamos. El propio CSS nativo
+       de Milnueve ya usa esta misma tecnica para sus dropdowns
+       (.top-nav__dropdown:hover>ul{display:flex}), asi que estamos
+       alineados con el comportamiento base del sitio en vez de pelear
+       contra el, que era la causa raiz del bug: :focus nunca llegaba
+       a dispararse en un <a tabindex=0> sin href durante un tap rapido */
+    .top-nav__main-menus.mobile .top-nav__dropdown:hover > ul{
         display:flex !important;
     }
     .top-nav__main-menus.mobile .top-nav__dropdown > ul > li > a,
