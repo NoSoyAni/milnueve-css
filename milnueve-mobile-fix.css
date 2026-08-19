@@ -194,6 +194,7 @@
         box-sizing: border-box !important;
         gap: 0 !important;
         scroll-behavior: smooth !important;
+        overflow-anchor: none !important;
     }
     .top-nav.mobile::-webkit-scrollbar,
     .top-nav:has(> .top-nav__main-menus.mobile)::-webkit-scrollbar {
@@ -511,6 +512,7 @@
        ================================================================= */
     .top-nav__main-menus.mobile > li {
         touch-action: manipulation !important;
+        overflow-anchor: none !important;
         width: 100% !important;
         position: static !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
