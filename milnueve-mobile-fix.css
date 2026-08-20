@@ -502,52 +502,9 @@
         min-height: min-content !important;
         flex-shrink: 0 !important;
     }
-    .top-nav__main-menus.mobile > li {
-        width: 100% !important;
-        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-    }
-    .top-nav__main-menus.mobile > li > a.top-nav__dropdown--nontouch {
-        display: none !important;
-    }
-    .top-nav__main-menus.mobile > li > a.top-nav__dropdown--touch,
-    .top-nav__main-menus.mobile > li > a:not(.top-nav__dropdown--nontouch):not(.top-nav__dropdown--touch) {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        width: 100% !important;
-        padding: 16px 4px !important;
-        font-size: 1rem !important;
-        font-weight: 600 !important;
-    }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul {
-        list-style: none !important;
-        display: none !important;
-        flex-direction: column !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        margin: 4px 0 14px 0 !important;
-        padding: 6px !important;
-        background: rgba(10,10,10,0.98) !important;
-        border: 1px solid rgba(255,255,255,0.08) !important;
-        border-radius: 12px !important;
-    }
-    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul {
-        display: flex !important;
-    }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul li a {
-        display: flex !important;
-        align-items: center !important;
-        gap: 10px !important;
-        width: 100% !important;
-        padding: 10px 8px !important;
-        font-size: 0.88rem !important;
-    }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul li i {
-        width: 18px !important;
-        text-align: center !important;
-        opacity: 0.65 !important;
-        flex: 0 0 auto !important;
-    }
+    /* BLOQUE VACIO: sin ningun CSS custom para el acordeon,
+       solo el CSS ORIGINAL del sitio decide su comportamiento */
+
 
     /* ---------- SECONDARY NAV / TABS (Perfil/Configuracion/Torrents...) ---------- */
     .secondary-nav {
@@ -891,7 +848,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix MINIMAL" !important;
+        content: "milnueve-mobile-fix EMPTY" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
