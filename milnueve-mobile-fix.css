@@ -193,7 +193,7 @@
         padding: 0 0 40px 0 !important;
         box-sizing: border-box !important;
         gap: 0 !important;
-        scroll-behavior: smooth !important;
+        scroll-behavior: auto !important;
         overflow-anchor: none !important;
     }
     .top-nav.mobile::-webkit-scrollbar,
@@ -535,7 +535,6 @@
         font-size: 1rem !important;
         font-weight: 600 !important;
         letter-spacing: 0.02em !important;
-        scroll-margin-top: 16px !important;
     }
     .top-nav__main-menus.mobile > li > a.top-nav__dropdown--touch::after,
     .top-nav__main-menus.mobile > li > a:not(.top-nav__dropdown--nontouch):not(.top-nav__dropdown--touch)::after {
@@ -589,7 +588,7 @@
     }
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
     .top-nav__main-menus.mobile .top-nav__dropdown:active ul {
-        max-height: 2000px !important;
+        max-height: none !important;
         margin: 4px 0 14px 0 !important;
         padding: 6px !important;
         border-width: 1px !important;
