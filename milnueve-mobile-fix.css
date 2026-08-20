@@ -1,3 +1,6 @@
+ortant;
+    }
+}
 /* ==UserStyle==
 @name           MILNUEVE MOBILE APP-LIKE REDESIGN
 @namespace      milnueve.local
@@ -190,11 +193,12 @@
         display: flex !important;
         flex-direction: column !important;
         align-items: stretch !important;
-        padding: 0 0 40px 0 !important;
+        padding: 4px 0 40px 0 !important;
         box-sizing: border-box !important;
         gap: 0 !important;
         scroll-behavior: auto !important;
         overflow-anchor: none !important;
+        overscroll-behavior: contain !important;
     }
     .top-nav.mobile::-webkit-scrollbar,
     .top-nav:has(> .top-nav__main-menus.mobile)::-webkit-scrollbar {
@@ -516,6 +520,9 @@
         width: 100% !important;
         position: static !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    }
+    .top-nav__main-menus.mobile > li:first-child {
+        touch-action: pan-y !important;
     }
     .top-nav__main-menus.mobile > li:last-child {
         border-bottom: none !important;
