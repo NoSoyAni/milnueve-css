@@ -559,11 +559,12 @@
     .top-nav__main-menus.mobile .top-nav__dropdown ul {
         position: static !important;
         list-style: none !important;
-        display: flex !important;
+        display: none !important;
         flex-direction: column !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
+        margin: 4px 0 14px 0 !important;
         padding: 6px !important;
         background: rgba(10,10,10,0.98) !important;
         border: 1px solid rgba(255,255,255,0.08) !important;
@@ -576,24 +577,10 @@
         transform: none !important;
         z-index: auto !important;
         float: none !important;
-        /* colapsado sin display:none: altura 0 + oculto de la vista,
-           pero sigue en el flujo (misma tecnica que el original) */
-        max-height: 0 !important;
-        margin: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        border-width: 0 !important;
-        overflow: hidden !important;
-        visibility: hidden !important;
     }
-    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
-    .top-nav__main-menus.mobile .top-nav__dropdown:active ul {
-        max-height: none !important;
-        margin: 4px 0 14px 0 !important;
-        padding: 6px !important;
-        border-width: 1px !important;
-        overflow: visible !important;
-        visibility: visible !important;
+    .top-nav__main-menus.mobile .top-nav__dropdown.open ul,
+    .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul {
+        display: flex !important;
     }
 
     .top-nav__main-menus.mobile .top-nav__dropdown ul li {
