@@ -24,6 +24,22 @@
         flex-direction: column !important;
         width: 100% !important;
     }
+    .top-nav.mobile > .top-nav__toggle,
+    .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__toggle {
+        position: fixed !important;
+        top: 14px !important;
+        right: 14px !important;
+        z-index: 1000000 !important;
+        font-size: 1.3rem !important;
+        color: #fff !important;
+        background: rgba(255,255,255,0.08) !important;
+        border-radius: 50% !important;
+        width: 38px !important;
+        height: 38px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
     .top-nav__main-menus.mobile > li {
         width: 100% !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
