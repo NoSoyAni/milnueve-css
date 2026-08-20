@@ -18,6 +18,34 @@
         order: 1 !important;
         display: flex !important;
     }
+    .top-nav.mobile ~ * ::before,
+    .top-nav.mobile ~ * ::after,
+    body:has(.top-nav.mobile) ::before,
+    body:has(.top-nav.mobile) ::after {
+        pointer-events: none !important;
+    }
+    .top-nav.mobile > .top-nav__left,
+    .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__left {
+        display: flex !important;
+        order: 2 !important;
+        width: 100% !important;
+        padding: 0 16px !important;
+        box-sizing: border-box !important;
+        margin: 4px 0 8px 0 !important;
+    }
+    .top-nav.mobile > .top-nav__left > *:not(a[href*="/gaming"]),
+    .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__left > *:not(a[href*="/gaming"]) {
+        display: none !important;
+    }
+    .top-nav.mobile > .top-nav__left > a[href*="/gaming"],
+    .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__left > a[href*="/gaming"] {
+        display: flex !important;
+        width: 100% !important;
+        justify-content: center !important;
+        font-size: 1rem !important;
+        padding: 12px !important;
+        box-sizing: border-box !important;
+    }
     .top-nav__main-menus.mobile {
         order: 3 !important;
         display: flex !important;
