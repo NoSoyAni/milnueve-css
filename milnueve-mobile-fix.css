@@ -13,7 +13,13 @@
         display: flex !important;
         flex-direction: column !important;
     }
+    .top-nav.mobile > .top-nav__right,
+    .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
+        order: 1 !important;
+        display: flex !important;
+    }
     .top-nav__main-menus.mobile {
+        order: 3 !important;
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
