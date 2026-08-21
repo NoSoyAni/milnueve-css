@@ -5,6 +5,21 @@
 
 @media screen and (max-width: 767px) {
 
+    html, body {
+        overflow-x: hidden !important;
+    }
+    #nobs-fx {
+        display: none !important;
+    }
+    main, .panelV2, .footer__wrapper {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        box-sizing: border-box !important;
+    }
+    body {
+        padding-bottom: 60px !important;
+    }
+
     .top-nav {
         display: flex !important;
         grid-template: none !important;
@@ -71,6 +86,45 @@
         font-size: 0.95rem !important;
         padding: 10px 14px !important;
         border-radius: 8px !important;
+    }
+
+    .top-nav__branding {
+        flex: 0 0 auto !important;
+        order: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .top-nav.mobile img,
+    .top-nav:has(> .top-nav__main-menus.mobile) img {
+        max-height: 40px !important;
+    }
+    .top-nav__branding img {
+        height: 24px !important;
+    }
+    .top-nav__site-logo {
+        display: block !important;
+        order: 2 !important;
+        flex: 1 1 auto !important;
+        min-width: 60px !important;
+        font-size: 1.1rem !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.02em !important;
+        line-height: 1.15 !important;
+        text-transform: uppercase !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        margin: 0 !important;
+        background: linear-gradient(90deg, #d080ff, #00e5ff) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+    .top-nav__left > a[href*="/gaming"] {
+        display: none !important;
+    }
+    .top-nav__main-menus:not(.mobile) {
+        display: none !important;
     }
 
     .top-nav.mobile > .top-nav__right,
