@@ -32,7 +32,7 @@
         display: flex !important;
         flex-direction: column-reverse !important;
         align-items: stretch !important;
-        padding: 40px 0 0 0 !important;
+        padding: 0 !important;
         box-sizing: border-box !important;
     }
 
@@ -183,7 +183,7 @@
         width: 100% !important;
         column-gap: 0 !important;
         background: linear-gradient(180deg, rgba(191,85,236,0.10), rgba(191,85,236,0.02)) !important;
-        padding: 60px 16px 14px 16px !important;
+        padding: 16px 16px 14px 16px !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
         flex-shrink: 0 !important;
     }
