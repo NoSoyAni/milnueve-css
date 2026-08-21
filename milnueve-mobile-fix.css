@@ -145,6 +145,7 @@
 
     .top-nav.mobile > .top-nav__right,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
+        order: -1 !important;
         display: flex !important;
     }
     .top-nav.mobile ~ * ::before,
@@ -214,10 +215,7 @@
         gap: 4px !important;
     }
     .top-nav__username--highresolution {
-        display: block !important;
-        font-size: 1.15rem !important;
-        font-weight: 700 !important;
-        margin: 6px 0 14px 0 !important;
+        display: none !important;
     }
     .top-nav__icon-bar {
         display: none !important;
