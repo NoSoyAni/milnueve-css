@@ -383,8 +383,7 @@
         justify-content: center !important;
     }
     .top-nav__main-menus.mobile {
-        display: flex !important;
-        flex-direction: column !important;
+        display: block !important;
         width: 100% !important;
         padding: 4px 16px 0 16px !important;
         box-sizing: border-box !important;
@@ -829,7 +828,7 @@
 
     /* ---------- MARCADOR DE VERSION (debug/cache-check) ---------- */
     body::before {
-        content: "milnueve-mobile-fix NOORDER-PROFILE-TEST" !important;
+        content: "milnueve-mobile-fix NOORDER-FULLMENU-TEST" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
