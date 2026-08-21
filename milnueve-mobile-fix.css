@@ -14,6 +14,22 @@
         gap: 10px !important;
         position: relative !important;
     }
+    .top-nav__toggle {
+        order: 1 !important;
+        flex: 0 0 auto !important;
+        align-self: flex-start !important;
+        margin-top: 6px !important;
+    }
+    .top-nav__left {
+        order: 2 !important;
+        width: auto !important;
+        flex: 1 1 auto !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        min-width: 0 !important;
+    }
 
     .top-nav.mobile > .top-nav__right,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
