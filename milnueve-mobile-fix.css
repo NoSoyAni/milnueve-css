@@ -840,7 +840,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix bug-check2" !important;
+        content: "milnueve-mobile-fix bug-check3" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
