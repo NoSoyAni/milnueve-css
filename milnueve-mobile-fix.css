@@ -145,7 +145,6 @@
 
     .top-nav.mobile > .top-nav__right,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
-        order: 1 !important;
         display: flex !important;
     }
     .top-nav.mobile ~ * ::before,
@@ -157,7 +156,6 @@
     .top-nav.mobile > .top-nav__left,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__left {
         display: flex !important;
-        order: 2 !important;
         width: 100% !important;
         padding: 0 16px !important;
         box-sizing: border-box !important;
@@ -222,12 +220,15 @@
         margin: 6px 0 14px 0 !important;
     }
     .top-nav__icon-bar {
+        display: none !important;
+    }
+    .top-nav__right.mobile .top-nav__icon-bar {
         width: 100% !important;
         flex-direction: row !important;
         display: flex !important;
         gap: 10px !important;
     }
-    .top-nav__icon-bar {
+    .top-nav__right.mobile .top-nav__icon-bar {
         width: 100% !important;
         flex-direction: row !important;
         flex-wrap: wrap !important;
@@ -406,7 +407,6 @@
         justify-content: center !important;
     }
     .top-nav__main-menus.mobile {
-        order: 3 !important;
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
