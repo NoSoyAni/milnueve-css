@@ -4,6 +4,17 @@
    se pueda desplazar en pantalla. Nada de tarjetas, colores, bordes. */
 
 @media screen and (max-width: 767px) {
+
+    .top-nav {
+        display: flex !important;
+        grid-template: none !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        padding: 8px 10px !important;
+        gap: 10px !important;
+        position: relative !important;
+    }
+
     .top-nav.mobile > .top-nav__right,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
         order: 1 !important;
