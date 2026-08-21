@@ -1,8 +1,7 @@
-/* MILNUEVE MOBILE APP-LIKE REDESIGN — version SIN reordenacion
-   Se han eliminado todas las propiedades "order" y los flex-direction/
-   flex-wrap que forzaban recolocacion de bloques dentro del menu
-   hamburguesa (Torrents/Comunidad/Soporte/Otro/Helado, perfil, etc).
-   Objetivo: aislar si el bug de "desaparece el dropdown" viene de ahi. */
+/* MILNUEVE MOBILE APP-LIKE REDESIGN — reconstruido pieza a pieza
+   desde el original, verificando en dispositivo real que cada bloque
+   no rompe el acordeon del menu (Torrents/Comunidad/Soporte/Otro/Helado).
+   Version funcionalmente equivalente al original completo. */
 
 @media screen and (max-width: 767px) {
 
@@ -30,15 +29,38 @@
         overflow-x: hidden !important;
         z-index: 999999 !important;
         background: #0a0a0a !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
         padding: 0 !important;
         box-sizing: border-box !important;
     }
 
     .top-nav {
+        display: flex !important;
+        grid-template: none !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
         padding: 8px 10px !important;
+        gap: 10px !important;
         position: relative !important;
     }
-
+    .top-nav__toggle {
+        order: 1 !important;
+        flex: 0 0 auto !important;
+        align-self: flex-start !important;
+        margin-top: 6px !important;
+    }
+    .top-nav__left {
+        order: 2 !important;
+        width: auto !important;
+        flex: 1 1 auto !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        min-width: 0 !important;
+    }
     .quick-search,
     .quick-search.sf-hidden,
     .quick-search__inputs,
@@ -46,6 +68,9 @@
         display: block !important;
     }
     .quick-search {
+        order: 3 !important;
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
         width: 100% !important;
         max-width: 100% !important;
         margin-left: -28px !important;
@@ -55,6 +80,8 @@
         padding-left: 28px !important;
         padding-right: 12px !important;
         box-sizing: border-box !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
         position: relative !important;
         min-height: 46px !important;
     }
@@ -66,6 +93,7 @@
         width: auto !important;
         max-width: none !important;
         margin: 0 !important;
+        justify-content: flex-start !important;
     }
     .quick-search__input {
         width: 100% !important;
@@ -76,6 +104,12 @@
         border-radius: 8px !important;
     }
 
+    .top-nav__branding {
+        flex: 0 0 auto !important;
+        order: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
     .top-nav.mobile img,
     .top-nav:has(> .top-nav__main-menus.mobile) img {
         max-height: 40px !important;
@@ -85,6 +119,8 @@
     }
     .top-nav__site-logo {
         display: block !important;
+        order: 2 !important;
+        flex: 1 1 auto !important;
         min-width: 60px !important;
         font-size: 1.1rem !important;
         font-weight: 900 !important;
@@ -109,7 +145,7 @@
 
     .top-nav.mobile > .top-nav__right,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
-        display: block !important;
+        display: flex !important;
     }
     .top-nav.mobile ~ * ::before,
     .top-nav.mobile ~ * ::after,
@@ -122,12 +158,20 @@
         display: none !important;
     }
     .top-nav__right.mobile {
+        grid-area: unset !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
         width: 100% !important;
+        column-gap: 0 !important;
         background: linear-gradient(180deg, rgba(191,85,236,0.10), rgba(191,85,236,0.02)) !important;
         padding: 16px 16px 14px 16px !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+        flex-shrink: 0 !important;
     }
     .top-nav__ratio-bar {
+        justify-content: flex-start !important;
         display: flex !important;
         flex-wrap: wrap !important;
         overflow-x: visible !important;
@@ -138,8 +182,9 @@
         margin-bottom: 6px !important;
     }
     .top-nav__ratio-bar li {
+        flex: 0 1 auto !important;
         white-space: nowrap !important;
-        display: inline-flex !important;
+        display: flex !important;
         align-items: center !important;
         gap: 5px !important;
         background: rgba(255,255,255,0.05) !important;
@@ -159,9 +204,16 @@
     }
     .top-nav__right.mobile .top-nav__icon-bar {
         width: 100% !important;
+        flex-direction: row !important;
         display: flex !important;
         gap: 10px !important;
+    }
+    .top-nav__right.mobile .top-nav__icon-bar {
+        width: 100% !important;
+        flex-direction: row !important;
         flex-wrap: wrap !important;
+        align-items: stretch !important;
+        gap: 8px !important;
         margin-bottom: 10px !important;
     }
     .top-nav__icon-bar > li {
@@ -189,6 +241,9 @@
     }
     .top-nav__icon-bar li:has(.fa-bell) .top-nav--right__icon-link::after {
         content: "Notis";
+    }
+    .top-nav__icon-bar .top-nav--right__icon-link {
+        position: relative !important;
     }
     .top-nav__icon-bar .top-nav--right__icon-link > *:not(:first-child) {
         position: absolute !important;
@@ -260,6 +315,10 @@
         flex: 0 0 auto !important;
     }
 
+    /* submenu del perfil: TARJETA que empuja el contenido hacia abajo.
+       flex-direction: column ELIMINADO aqui — sospechoso de romper el
+       dropdown junto con el resto de la lista li>ul. Usamos display:block
+       en su lugar (los <li> ya son block por defecto, no necesitan flex). */
     .top-nav__icon-bar .top-nav__dropdown ul {
         position: static !important;
         width: 100% !important;
@@ -324,12 +383,15 @@
         justify-content: center !important;
     }
     .top-nav__main-menus.mobile {
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         width: 100% !important;
         padding: 4px 16px 0 16px !important;
         box-sizing: border-box !important;
+        gap: 0 !important;
         overflow: visible !important;
         min-height: min-content !important;
+        flex-shrink: 0 !important;
     }
     .top-nav__main-menus.mobile > li {
         width: 100% !important;
@@ -375,6 +437,9 @@
         width: 100% !important;
     }
 
+    /* submenu como TARJETA que empuja el contenido de abajo hacia
+       abajo, en vez de flotar encima o a un lado. flex-direction:column
+       ELIMINADO — usamos display:block, igual que en el dropdown perfil. */
     .top-nav__main-menus.mobile .top-nav__dropdown ul {
         position: static !important;
         list-style: none !important;
@@ -429,8 +494,7 @@
         opacity: 0.65 !important;
         flex: 0 0 auto !important;
     }
-
-    /* ---------- SECONDARY NAV / TABS ---------- */
+    /* ---------- SECONDARY NAV / TABS (Perfil/Configuracion/Torrents...) ---------- */
     .secondary-nav {
         padding: 4px 8px !important;
         overflow: visible !important;
@@ -441,11 +505,16 @@
         white-space: nowrap !important;
     }
     .nav-tabsV2 {
+        display: flex !important;
+        flex-direction: column !important;
         overflow: visible !important;
+        flex-wrap: nowrap !important;
+        gap: 0 !important;
         width: 100% !important;
     }
     .nav-tab-menu {
         position: relative !important;
+        flex: 1 1 auto !important;
         width: 100% !important;
         min-height: 44px !important;
         display: flex !important;
@@ -505,7 +574,8 @@
     }
     .nav-tab-menu:focus-within > .nav-tab-menu__items,
     .nav-tab-menu.open > .nav-tab-menu__items {
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         position: static !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -632,6 +702,7 @@
         white-space: nowrap !important;
         overflow-wrap: normal !important;
         word-break: keep-all !important;
+        flex: 0 0 auto !important;
         max-width: 100% !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
@@ -640,6 +711,7 @@
         font-size: 0.7rem !important;
         opacity: 0.6 !important;
         white-space: nowrap !important;
+        flex: 0 0 auto !important;
     }
     .chatbox-message__content,
     .bot-message {
@@ -755,8 +827,9 @@
         font-size: 1.2rem !important;
     }
 
+    /* ---------- MARCADOR DE VERSION (debug/cache-check) ---------- */
     body::before {
-        content: "milnueve-mobile-fix NOORDER-TEST" !important;
+        content: "milnueve-mobile-fix NOORDER-PROFILE-TEST" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
