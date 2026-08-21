@@ -44,6 +44,7 @@
         padding: 8px 10px !important;
         gap: 10px !important;
         position: relative !important;
+        contain: layout !important;
     }
     .top-nav__toggle {
         order: 1 !important;
@@ -828,7 +829,7 @@
 
     /* ---------- MARCADOR DE VERSION (debug/cache-check) ---------- */
     body::before {
-        content: "milnueve-mobile-fix NOORDER-FULLMENU-TEST" !important;
+        content: "milnueve-mobile-fix CONTAIN-LAYOUT-TEST" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
