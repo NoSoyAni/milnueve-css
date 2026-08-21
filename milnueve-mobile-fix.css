@@ -4,6 +4,156 @@
    se pueda desplazar en pantalla. Nada de tarjetas, colores, bordes. */
 
 @media screen and (max-width: 767px) {
+    .top-nav__main-menus:not(.mobile) {
+        display: none !important;
+    }
+
+    /* ---------- BASE ---------- */
+    html, body {
+        overflow-x: hidden !important;
+    }
+    #nobs-fx {
+        display: none !important;
+    }
+    main, .panelV2, .footer__wrapper {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        box-sizing: border-box !important;
+    }
+    body {
+        padding-bottom: 60px !important;
+    }
+
+    .top-nav {
+        display: flex !important;
+        grid-template: none !important;
+        flex-wrap: wrap !important;
+        align-items: center !important;
+        padding: 8px 10px !important;
+        gap: 10px !important;
+        position: relative !important;
+    }
+    /* el toggle es hermano de .top-nav__left y .top-nav__right dentro
+       de .top-nav (flex). Lo dejamos fluir normal en la fila, alineado
+       por altura con el logo/titulo, en vez de sacarlo con
+       position:absolute (eso lo dejaba "flotando" en linea aparte). */
+    .top-nav__toggle {
+        order: 1 !important;
+        flex: 0 0 auto !important;
+        align-self: flex-start !important;
+        margin-top: 6px !important;
+    }
+    .top-nav__left {
+        order: 2 !important;
+        width: auto !important;
+        flex: 1 1 auto !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+        align-items: flex-start !important;
+        gap: 8px !important;
+        min-width: 0 !important;
+    }
+    .top-nav__branding {
+        flex: 0 0 auto !important;
+        order: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .top-nav.mobile img,
+    .top-nav:has(> .top-nav__main-menus.mobile) img {
+        max-height: 40px !important;
+    }
+    .top-nav__branding img {
+        height: 24px !important;
+    }
+    .top-nav__site-logo {
+        display: block !important;
+        order: 2 !important;
+        /* ocupa el resto de la PRIMERA fila (junto al logo pequeño),
+           nunca crece a 100% para no empujar al buscador a compartir
+           esa misma fila */
+        flex: 1 1 auto !important;
+        min-width: 60px !important;
+        font-size: 1.1rem !important;
+        font-weight: 900 !important;
+        letter-spacing: 0.02em !important;
+        line-height: 1.15 !important;
+        text-transform: uppercase !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        margin: 0 !important;
+        background: linear-gradient(90deg, #d080ff, #00e5ff) !important;
+        -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+    /* buscador: SIEMPRE fuerza su propia fila completa DENTRO de
+       .top-nav__left (no del .top-nav padre), asi el toggle -que
+       vive fuera de .top-nav__left- no se ve afectado */
+    .quick-search,
+    .quick-search.sf-hidden,
+    .quick-search__inputs,
+    .quick-search__inputs.sf-hidden {
+        display: block !important;
+    }
+    .quick-search {
+        order: 3 !important;
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        /* tira del buscador hacia la izquierda para que arranque
+           alineado con la hamburguesa, dejando un pequeño respiro
+           en vez de tocar el borde de la pantalla */
+        margin-left: -28px !important;
+        margin-right: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        padding-left: 28px !important;
+        padding-right: 12px !important;
+        box-sizing: border-box !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        position: relative !important;
+        min-height: 46px !important;
+    }
+    /* el tema pone .quick-search__inputs en position:absolute con
+       width fijo de 400px SOLO al enfocar, y sin left/right definidos
+       en reposo -> por eso "width:100%" no se notaba. Lo anclamos
+       explicitamente a todo el ancho del padre relativo. */
+    .quick-search__inputs {
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        justify-content: flex-start !important;
+    }
+    .quick-search__input {
+        width: 100% !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+        font-size: 0.95rem !important;
+        padding: 10px 14px !important;
+        border-radius: 8px !important;
+    }
+    /* boton Arcade sale de la barra superior; se reubica dentro del
+       panel hamburguesa, ver seccion mas abajo */
+    .top-nav__left > a[href*="/gaming"] {
+        display: none !important;
+    }
+
+    /* =================================================================
+       PANEL HAMBURGUESA COMPLETO
+       Fusiona: icon-bar (perfil/correo/notis) + main-menus (Torrents,
+       Comunidad, Soporte, Otro) en un unico panel a pantalla completa
+       con acordeon. Usamos order sobre EL PROPIO .top-nav (flex
+       container) en vez de depender de :has(), que es mas fragil.
+       ================================================================= */
+
     .top-nav.mobile,
     .top-nav:has(> .top-nav__main-menus.mobile) {
         position: fixed !important;
@@ -99,7 +249,169 @@
         display: flex !important;
         gap: 10px !important;
     }
-    .top-nav__main-menus.mobile {
+    .top-nav__icon-bar {
+        width: 100% !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        align-items: stretch !important;
+        gap: 8px !important;
+        margin-bottom: 10px !important;
+    }
+    .top-nav__icon-bar > li {
+        border-top: none !important;
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+    }
+    .top-nav__icon-bar .top-nav--right__icon-link {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        width: 100% !important;
+        padding: 9px 10px !important;
+        font-size: 0.82rem !important;
+        background: rgba(255,255,255,0.05) !important;
+        border-radius: 8px !important;
+        box-sizing: border-box !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    .top-nav__icon-bar li:has(.fa-envelope) .top-nav--right__icon-link::after {
+        content: "Bandeja";
+    }
+    .top-nav__icon-bar li:has(.fa-bell) .top-nav--right__icon-link::after {
+        content: "Notis";
+    }
+    /* punto/badge de actividad: pegado a la esquina del propio icono.
+       Cubrimos cualquier elemento hijo del link que no sea el icono <i>
+       principal, ya que el badge puede venir como span/small/em/dot
+       segun el tema */
+    .top-nav__icon-bar .top-nav--right__icon-link {
+        position: relative !important;
+    }
+    .top-nav__icon-bar .top-nav--right__icon-link > *:not(:first-child) {
+        position: absolute !important;
+        top: 2px !important;
+        left: 18px !important;
+        right: auto !important;
+        bottom: auto !important;
+        transform: none !important;
+        width: 9px !important;
+        height: 9px !important;
+        min-width: 9px !important;
+        max-width: 9px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 50% !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+        overflow: hidden !important;
+        text-indent: -9999px !important;
+        border: 2px solid #0a0a0a !important;
+        box-sizing: content-box !important;
+    }
+
+    .top-nav__icon-bar .top-nav__dropdown {
+        position: static !important;
+        width: 100% !important;
+        flex: 1 1 100% !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--nontouch {
+        display: none !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+        width: 100% !important;
+        padding: 10px 12px !important;
+        font-weight: 600 !important;
+        background: rgba(255,255,255,0.04) !important;
+        border-radius: 10px !important;
+        box-sizing: border-box !important;
+    }
+    /* flecha acordeon tambien aqui, coherente con el menu principal */
+    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch::after {
+        content: "\f078";
+        font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", FontAwesome;
+        font-weight: 900;
+        font-size: 0.7rem;
+        opacity: 0.5;
+        transition: transform 0.2s ease;
+        margin-left: auto;
+    }
+    .top-nav__icon-bar .top-nav__dropdown.open > a::after,
+    .top-nav__icon-bar .top-nav__dropdown:focus-within > a::after {
+        transform: rotate(180deg);
+    }
+    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch img {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+        object-fit: cover !important;
+        flex: 0 0 auto !important;
+    }
+    .top-nav__profile-image {
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 50% !important;
+        flex: 0 0 auto !important;
+    }
+
+    /* submenu del perfil: TARJETA que empuja el contenido hacia abajo,
+       nunca position:absolute flotando encima de otras cosas */
+    .top-nav__icon-bar .top-nav__dropdown ul {
+        position: static !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        display: none !important;
+        flex-direction: column !important;
+        margin: 6px 0 4px 0 !important;
+        padding: 6px !important;
+        background: rgba(255,255,255,0.045) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+        border-radius: 12px !important;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.04) !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown.open ul,
+    .top-nav__icon-bar .top-nav__dropdown:focus-within ul {
+        display: flex !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown ul li {
+        width: 100% !important;
+        border-top: 1px solid rgba(255,255,255,0.05) !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown ul li:first-child {
+        border-top: none !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown ul li a,
+    .top-nav__icon-bar .top-nav__dropdown ul li button {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        padding: 10px 8px !important;
+        font-size: 0.88rem !important;
+        opacity: 0.9 !important;
+        box-sizing: border-box !important;
+        border-radius: 6px !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown ul li a:active,
+    .top-nav__icon-bar .top-nav__dropdown ul li button:active {
+        background: rgba(255,255,255,0.06) !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown ul li i {
+        width: 18px !important;
+        text-align: center !important;
+        opacity: 0.7 !important;
+        flex: 0 0 auto !important;
+    }
+
+        .top-nav__main-menus.mobile {
         order: 3 !important;
         display: flex !important;
         flex-direction: column !important;
