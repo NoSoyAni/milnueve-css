@@ -33,7 +33,7 @@
 El objetivo de este repositorio es solucionar fallos de diseño y mejorar la estética de la plataforma web **Milnueve** mediante dos hojas de estilo CSS:
 
 1. **Optimización Móvil:** Corregir problemas de maquetación y adaptabilidad en pantallas pequeñas.
-2. **Estética Futurista:** Implementar una capa visual inspirada en interfaces cibernéticas / HUD tipo Stark.
+2. **Estética Futurista:** Implementar una capa visual inspirada en interfaces cibernéticas / HUD tipo Stark. Este también incorpora la mejora para móviles
 
 ---
 
@@ -48,29 +48,8 @@ El objetivo de este repositorio es solucionar fallos de diseño y mejorar la est
 
 ## ⚠️ Estado de los Estilos
 
-* 📱 **`milnueve-mobile-fix.css`**: Contiene reglas responsive para adaptar la interfaz, pero actualmente presenta fallos de alineación, desbordamientos de texto o elementos que no responden adecuadamente en ciertas resoluciones.
-* 🛡️ **`stark-milnueve.css`**: Aplica la estética HUD/Stark, pero varios efectos visuales, bordes y superposiciones no se renderizan correctamente o interfieren con elementos nativos de la web.
-
----
-
-## 🚀 Instalación (Modo Pruebas)
-
-Si deseas probar o colaborar en el desarrollo de estos estilos, puedes inyectarlos usando extensiones de navegador como **Stylus** o **UserCSS**:
-
-```css
-/* Importación para pruebas */
-@import url('https://raw.githubusercontent.com/TU-USUARIO/TU-REPOSITORIO/main/milnueve-mobile-fix.css');
-@import url('https://raw.githubusercontent.com/TU-USUARIO/TU-REPOSITORIO/main/stark-milnueve.css');
-```
-
----
-
-## 🛠️ Roadmap de Correcciones
-
-- [ ] Corregir fallos de maquetación móvil en `milnueve-mobile-fix.css`.
-- [ ] Depurar selectores CSS rotos en `stark-milnueve.css`.
-- [ ] Ajustar la superposición de elementos HUD para evitar bloqueos de clic.
-- [ ] Lograr compatibilidad fluida entre la vista móvil y los efectos HUD.
+* 📱 **`milnueve-mobile-fix.css`**: Contiene reglas responsive para adaptar la interfaz, pero actualmente presenta fallos en dropdowns y no está revisado del todo.
+* 🛡️ **`stark-milnueve.css`**: Aplica la estética HUD/Stark, actualmente no carga en la web y estoy trabajando para solucionarlo.
 
 ---
 
