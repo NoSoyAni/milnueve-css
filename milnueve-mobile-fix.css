@@ -176,9 +176,6 @@
         padding: 12px !important;
         box-sizing: border-box !important;
     }
-    .top-nav__right:not(.mobile) {
-        display: none !important;
-    }
     .top-nav__right.mobile {
         grid-area: unset !important;
         display: flex !important;
