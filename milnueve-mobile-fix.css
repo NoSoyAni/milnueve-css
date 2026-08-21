@@ -328,12 +328,6 @@
     .top-nav__icon-bar .top-nav__dropdown:focus-within ul {
         display: flex !important;
     }
-    .top-nav__icon-bar .top-nav__dropdown ul li a,
-    .top-nav__icon-bar .top-nav__dropdown ul li button {
-        display: flex !important;
-        align-items: center !important;
-        gap: 10px !important;
-    }
 
     .top-nav.mobile > .top-nav__toggle,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__toggle {
