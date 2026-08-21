@@ -204,11 +204,13 @@
     }
     .top-nav__right.mobile .top-nav__icon-bar {
         width: 100% !important;
+        flex-direction: row !important;
         display: flex !important;
         gap: 10px !important;
     }
     .top-nav__right.mobile .top-nav__icon-bar {
         width: 100% !important;
+        flex-direction: row !important;
         flex-wrap: wrap !important;
         align-items: stretch !important;
         gap: 8px !important;
@@ -313,6 +315,12 @@
         flex: 0 0 auto !important;
     }
 
+    /* submenu del perfil: SIEMPRE VISIBLE cuando el menu hamburguesa
+       esta abierto. Se ha quitado el display:none inicial y toda la
+       logica de apertura por .open / :focus-within porque el sitio
+       ya lo controla de forma nativa (probablemente via su propio
+       JS de click), y :focus-within nunca llegaba a activarse en
+       movil, dejando el submenu inaccesible para siempre. */
     .top-nav__icon-bar .top-nav__dropdown ul {
         position: static !important;
         width: 100% !important;
@@ -372,10 +380,12 @@
         justify-content: center !important;
     }
     .top-nav__main-menus.mobile {
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         width: 100% !important;
         padding: 4px 16px 0 16px !important;
         box-sizing: border-box !important;
+        gap: 0 !important;
         overflow: visible !important;
         min-height: min-content !important;
         flex-shrink: 0 !important;
@@ -406,7 +416,7 @@
     }
     .top-nav__main-menus.mobile > li > a.top-nav__dropdown--touch::after,
     .top-nav__main-menus.mobile > li > a:not(.top-nav__dropdown--nontouch):not(.top-nav__dropdown--touch)::after {
-        content: "\f078";
+        content: "\f078"; /* fa-chevron-down: apunta hacia donde se abre (abajo) */
         font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", FontAwesome;
         font-weight: 900;
         font-size: 0.75rem;
@@ -424,10 +434,13 @@
         width: 100% !important;
     }
 
+    /* submenu como TARJETA que empuja el contenido de abajo hacia
+       abajo, en vez de flotar encima o a un lado */
     .top-nav__main-menus.mobile .top-nav__dropdown ul {
         position: static !important;
         list-style: none !important;
         display: none !important;
+        flex-direction: column !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
@@ -449,7 +462,7 @@
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul,
     .top-nav__main-menus.mobile .top-nav__dropdown.open ul.sf-hidden,
     .top-nav__main-menus.mobile .top-nav__dropdown:focus-within ul.sf-hidden {
-        display: block !important;
+        display: flex !important;
     }
     .top-nav__main-menus.mobile .top-nav__dropdown ul li {
         width: 100% !important;
@@ -524,7 +537,7 @@
         pointer-events: none !important;
     }
     .nav-tab-menu::after {
-        content: "\f054";
+        content: "\f054"; /* fa-chevron-right */
         font-family: "Font Awesome 5 Free", "Font Awesome 6 Free", FontAwesome;
         font-weight: 900;
         font-size: 0.75rem;
@@ -558,7 +571,8 @@
     }
     .nav-tab-menu:focus-within > .nav-tab-menu__items,
     .nav-tab-menu.open > .nav-tab-menu__items {
-        display: block !important;
+        display: flex !important;
+        flex-direction: column !important;
         position: static !important;
         width: 100% !important;
         max-width: 100% !important;
@@ -810,8 +824,12 @@
         font-size: 1.2rem !important;
     }
 
+    /* ---------- MARCADOR DE VERSION (debug/cache-check) ----------
+       Esquina inferior-izquierda, discreto. Sirve para confirmar que
+       el navegador esta cargando la version actualizada del CSS y no
+       una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix MENU-NOORDER" !important;
+        content: "milnueve-mobile-fix PERFIL-SIEMPRE-VISIBLE" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
