@@ -208,7 +208,10 @@
     .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--nontouch {
         display: none !important;
     }
-    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch {
+    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch,
+    .top-nav__icon-bar .top-nav__dropdown:focus-within > a.top-nav__dropdown--touch,
+    .top-nav__icon-bar.mobile > li:last-child > a.top-nav__dropdown--touch,
+    .top-nav__icon-bar.mobile > li:last-child:focus-within > a.top-nav__dropdown--touch {
         display: flex !important;
     }
     .top-nav__icon-bar .top-nav__dropdown ul {
@@ -693,7 +696,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix PP3-TOGGLE" !important;
+        content: "milnueve-mobile-fix PP4-A-PERSIST" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
