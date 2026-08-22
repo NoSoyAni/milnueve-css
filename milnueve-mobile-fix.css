@@ -214,6 +214,15 @@
     .top-nav__icon-bar.mobile > li:last-child:focus-within > a.top-nav__dropdown--touch {
         display: flex !important;
     }
+    .top-nav__profile-image {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
+        border-radius: 50% !important;
+        flex: 0 0 auto !important;
+        object-fit: cover !important;
+    }
     .top-nav__icon-bar .top-nav__dropdown ul {
         display: none !important;
     }
@@ -696,7 +705,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix PP4-A-PERSIST" !important;
+        content: "milnueve-mobile-fix PP5-IMG-SIZE" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
