@@ -336,14 +336,18 @@
     .top-nav__icon-bar .top-nav__dropdown:focus-within ul {
         display: flex !important;
     }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul li {
+    .top-nav__main-menus.mobile .top-nav__dropdown ul li,
+    .top-nav__icon-bar .top-nav__dropdown ul li {
         width: 100% !important;
         border-top: 1px solid rgba(255,255,255,0.05) !important;
     }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul li:first-child {
+    .top-nav__main-menus.mobile .top-nav__dropdown ul li:first-child,
+    .top-nav__icon-bar .top-nav__dropdown ul li:first-child {
         border-top: none !important;
     }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul li a {
+    .top-nav__main-menus.mobile .top-nav__dropdown ul li a,
+    .top-nav__icon-bar .top-nav__dropdown ul li a,
+    .top-nav__icon-bar .top-nav__dropdown ul li button {
         display: flex !important;
         align-items: center !important;
         gap: 10px !important;
@@ -353,11 +357,17 @@
         opacity: 0.9 !important;
         box-sizing: border-box !important;
         border-radius: 6px !important;
+        color: inherit !important;
+        background: transparent !important;
+        border: none !important;
     }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul li a:active {
+    .top-nav__main-menus.mobile .top-nav__dropdown ul li a:active,
+    .top-nav__icon-bar .top-nav__dropdown ul li a:active,
+    .top-nav__icon-bar .top-nav__dropdown ul li button:active {
         background: rgba(255,255,255,0.06) !important;
     }
-    .top-nav__main-menus.mobile .top-nav__dropdown ul li i {
+    .top-nav__main-menus.mobile .top-nav__dropdown ul li i,
+    .top-nav__icon-bar .top-nav__dropdown ul li i {
         width: 18px !important;
         text-align: center !important;
         opacity: 0.65 !important;
@@ -705,7 +715,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix PP5-IMG-SIZE" !important;
+        content: "milnueve-mobile-fix PP6-LI-A-FIX" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
