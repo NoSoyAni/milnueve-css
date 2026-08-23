@@ -205,14 +205,15 @@
     .top-nav__right.mobile .top-nav__icon-bar {
         display: flex !important;
     }
-    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--nontouch {
-        display: none !important;
-    }
-    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch,
-    .top-nav__icon-bar .top-nav__dropdown:focus-within > a.top-nav__dropdown--touch,
-    .top-nav__icon-bar.mobile > li:last-child > a.top-nav__dropdown--touch,
-    .top-nav__icon-bar.mobile > li:last-child:focus-within > a.top-nav__dropdown--touch {
+    /* Enlace directo con href real, en vez del dropdown que no
+       persiste el foco por tap real en <img>. Toca y navega a
+       "Mi perfil" sin depender de :focus-within. */
+    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--nontouch,
+    .top-nav__icon-bar.mobile > li:last-child > a.top-nav__dropdown--nontouch {
         display: flex !important;
+    }
+    .top-nav__icon-bar .top-nav__dropdown > a.top-nav__dropdown--touch {
+        display: none !important;
     }
     .top-nav__profile-image {
         width: 32px !important;
@@ -715,7 +716,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix PP6-LI-A-FIX" !important;
+        content: "milnueve-mobile-fix ENLACE-DIRECTO" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
