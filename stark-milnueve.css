@@ -269,17 +269,6 @@ nav.top-nav::after {
 
 /* ── BARRA DE RATIO ── */
 .top-nav__ratio-bar { font-family: 'Share Tech Mono', monospace !important; font-size: 11px !important; }
-.top-nav__ratio-bar a { color: var(--text-dim) !important; }
-.top-nav__ratio-bar a:hover { color: var(--arc-bright) !important; }
-
-.ratio-bar__uploaded a   { color: var(--arc-bright) !important; }
-.ratio-bar__downloaded a { color: var(--danger) !important; }
-.ratio-bar__seeding a    { color: var(--success) !important; }
-.ratio-bar__leeching a   { color: var(--danger) !important; }
-.ratio-bar__ratio a      { color: var(--arc) !important; }
-.ratio-bar__points a,
-.ratio-bar__tokens a     { color: var(--gold) !important; text-shadow: 0 0 6px rgba(255,207,92,0.35) !important; }
-.ratio-bar__thanks a     { color: #ff6b9d !important; }
 
 /* ── USUARIO / ICONOS ── */
 .top-nav__username--highresolution .text-bold,
