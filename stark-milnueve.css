@@ -267,8 +267,6 @@ nav.top-nav::after {
 .top-nav__dropdown ul li a { color: var(--text) !important; font-family: 'Rajdhani', sans-serif !important; }
 .top-nav__dropdown ul li a:hover { background: rgba(0,217,255,0.08) !important; color: var(--arc-bright) !important; }
 
-/* ── BARRA DE RATIO ── */
-.top-nav__ratio-bar { font-family: 'Share Tech Mono', monospace !important; font-size: 11px !important; }
 
 /* ── USUARIO / ICONOS ── */
 .top-nav__username--highresolution .text-bold,
