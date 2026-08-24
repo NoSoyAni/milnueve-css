@@ -1,11 +1,11 @@
 /* ============================================
    STARK INDUSTRIES HUD — ARC REACTOR EDITION
-   NoSoyAni Custom CSS for N.O.B.S (UNIT3D v9.2.0)
+   NoSoyAni Custom CSS for MilNueve (UNIT3D v9.2.0)
    Selectores confirmados a partir del HTML real
    del sitio (settings/general-edit page).
    ============================================ */
 
-@import url('https://nosoyani.github.io/nobs-css/nobs-mobile-fix.css');
+@import url('https://nosoyani.github.io/milnueve-css/milnueve-mobile-fix.css');
 
 /* ── FUENTES AUTO-HOSPEDADAS (embebidas en base64) ──
    El sitio tiene font-src: 'self' data:  -- NO permite
