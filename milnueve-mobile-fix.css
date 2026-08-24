@@ -191,10 +191,11 @@
         display: flex !important;
         align-items: center !important;
         gap: 5px !important;
-        padding: 6px 10px !important;
-        background: rgba(255,255,255,0.05) !important;
-        border-radius: 8px !important;
-        isolation: isolate !important;
+        padding: 4px 8px 6px 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+    }
+    .top-nav__ratio-bar li i {
+        opacity: 0.6 !important;
     }
     .top-nav__username--highresolution {
         display: none !important;
