@@ -147,6 +147,9 @@
         display: none !important;
     }
 
+    .top-nav__right:not(.mobile) {
+        display: none !important;
+    }
     .top-nav.mobile > .top-nav__right,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
         display: flex !important;
@@ -767,7 +770,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix DROPDOWN-V3" !important;
+        content: "milnueve-mobile-fix DROPDOWN-V4" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
