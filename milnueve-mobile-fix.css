@@ -28,6 +28,7 @@
         right: 0 !important;
         bottom: auto !important;
         height: auto !important;
+        min-height: 100vh !important;
         max-height: 100vh !important;
         overflow-y: auto !important;
         overflow-x: hidden !important;
@@ -38,6 +39,10 @@
         align-items: stretch !important;
         padding: 0 !important;
         box-sizing: border-box !important;
+    }
+    body:has(.top-nav.mobile),
+    body:has(.top-nav:has(> .top-nav__main-menus.mobile)) {
+        overflow: hidden !important;
     }
 
     .top-nav {
@@ -149,6 +154,33 @@
 
     .top-nav__right:not(.mobile) {
         display: none !important;
+    }
+    .top-nav__right:not(.mobile) > .top-nav__ratio-bar {
+        display: flex !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 999998 !important;
+        background: #0a0a0a !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 4px 12px !important;
+        padding: 5px 44px 5px 8px !important;
+        font-size: 0.65rem !important;
+        box-sizing: border-box !important;
+        border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+    }
+    body {
+        padding-top: 26px !important;
+    }
+    .top-nav.mobile,
+    .top-nav:has(> .top-nav__main-menus.mobile) {
+        top: 26px !important;
+    }
+    .top-nav.mobile > .top-nav__toggle,
+    .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__toggle {
+        top: 40px !important;
     }
     .top-nav.mobile > .top-nav__right,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
@@ -770,7 +802,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix DROPDOWN-V4" !important;
+        content: "milnueve-mobile-fix DROPDOWN-V5" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
