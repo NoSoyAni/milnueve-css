@@ -243,6 +243,9 @@ nav.top-nav::after {
 .quick-search__result-name { color: var(--text) !important; }
 .quick-search__result-year, .quick-search__result-type { color: var(--text-dim) !important; }
 
+/* Anular regla general para no tocar ratio bar que provoca bug en dropdowns*/
+.top-nav__ratio-bar a { color: var(--text-dim) !important; }
+
 /* ── MENUS / DROPDOWNS DE NAVEGACION ── */
 .top-nav--left__container {
   font-family: 'Orbitron', monospace !important;
