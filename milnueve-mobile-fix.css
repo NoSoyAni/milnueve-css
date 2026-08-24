@@ -153,6 +153,10 @@
     }
 
     .top-nav__right:not(.mobile) {
+        display: flex !important;
+        position: fixed !important;
+    }
+    .top-nav__right:not(.mobile) > *:not(.top-nav__ratio-bar) {
         display: none !important;
     }
     .top-nav__right:not(.mobile) > .top-nav__ratio-bar {
