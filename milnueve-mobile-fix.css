@@ -172,20 +172,20 @@
         gap: 4px 12px !important;
         padding: 8px 44px 8px 8px !important;
         font-size: 0.8rem !important;
-        min-height: 40px !important;
+        min-height: 60px !important;
         box-sizing: border-box !important;
         border-bottom: 1px solid rgba(255,255,255,0.08) !important;
     }
     body {
-        padding-top: 40px !important;
+        padding-top: 60px !important;
     }
     .top-nav.mobile,
     .top-nav:has(> .top-nav__main-menus.mobile) {
-        top: 40px !important;
+        top: 60px !important;
     }
     .top-nav.mobile > .top-nav__toggle,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__toggle {
-        top: 54px !important;
+        top: 74px !important;
     }
     .top-nav.mobile > .top-nav__right,
     .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right {
@@ -807,7 +807,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix DROPDOWN-V6" !important;
+        content: "milnueve-mobile-fix DROPDOWN-V7" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
