@@ -188,7 +188,7 @@ h1, h2, h3, h4, h5,
   text-shadow: 0 0 12px var(--arc-glow);
 }
 
-a:not(.user-tag__link) { color: var(--arc) !important; text-decoration: none !important; transition: color .25s cubic-bezier(.4,0,.2,1), text-shadow .25s cubic-bezier(.4,0,.2,1); }
+.top-nav__ratio-bar a:not(.user-tag__link) { color: var(--text-dim) !important; } text-decoration: none !important; transition: color .25s cubic-bezier(.4,0,.2,1), text-shadow .25s cubic-bezier(.4,0,.2,1); }
 a:not(.user-tag__link):hover { color: var(--arc-bright) !important; text-shadow: 0 0 10px var(--arc-glow); }
 
 /* Color de grupo/rango: UNIT3D lo pone inline (style="color: #hex")
