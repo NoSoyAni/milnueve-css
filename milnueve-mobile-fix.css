@@ -158,6 +158,10 @@
         flex-basis: 100% !important;
         width: 100% !important;
     }
+    .top-nav.mobile > .top-nav__right:not(.mobile),
+    .top-nav:has(> .top-nav__main-menus.mobile) > .top-nav__right:not(.mobile) {
+        display: none !important;
+    }
     .top-nav__right:not(.mobile) > *:not(.top-nav__ratio-bar) {
         display: none !important;
     }
@@ -789,7 +793,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix DROPDOWN-V10" !important;
+        content: "milnueve-mobile-fix DROPDOWN-V11" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
