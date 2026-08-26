@@ -42,8 +42,8 @@ El objetivo de este repositorio es solucionar fallos de diseño y mejorar la est
 | Archivo | Descripción | Estado |
 | :--- | :--- | :---: |
 | `milnueve-mobile-fix.css` | Correcciones y ajustes de maquetación para dispositivos móviles. | `INCOMPLETO / CON ERRORES` 🔴 |
-| `stark-milnueve.css` | Efectos visuales tipo HUD, bordes estilo neón y estética Stark. | `FINALIZADO/FUNCIONANDO` ✅ |
-
+| `stark-milnueve.css` | Efectos visuales tipo HUD, bordes estilo neón y estética Stark. |  |
+`INCOMPLETO / CON ERRORES` 🔴
 ---
 
 ## ⚠️ Estado de los Estilos
