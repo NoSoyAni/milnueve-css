@@ -296,7 +296,27 @@
     }
     .top-nav__icon-bar > li:has(a[href*="/notifications"]),
     .top-nav__icon-bar > li:has(a[href*="/conversations"]) {
-        display: none !important;
+        display: flex !important;
+        flex: 1 1 auto !important;
+        order: 1 !important;
+    }
+    .top-nav__icon-bar > li:last-child {
+        order: 2 !important;
+    }
+    .top-nav__icon-bar > li:has(a[href*="/notifications"]) .top-nav--right__icon-link,
+    .top-nav__icon-bar > li:has(a[href*="/conversations"]) .top-nav--right__icon-link {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        padding: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        background: rgba(255,255,255,0.05) !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
+        border-radius: 8px !important;
+        color: #fff !important;
+        position: relative !important;
     }
     .top-nav__profile-image {
         width: 28px !important;
@@ -800,7 +820,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix DROPDOWN-V12" !important;
+        content: "milnueve-mobile-fix DROPDOWN-V13" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
