@@ -224,7 +224,7 @@
         border-bottom: none !important;
         flex-shrink: 0 !important;
     }
-    .top-nav__ratio-bar {
+    .top-nav__right.mobile .top-nav__ratio-bar {
         display: flex !important;
         flex-wrap: wrap !important;
         gap: 8px !important;
@@ -232,7 +232,6 @@
         margin-top: 10px !important;
         margin-bottom: 0 !important;
         font-size: 0.9rem !important;
-        contain: layout style !important;
     }
     .top-nav__ratio-bar li {
         flex: 0 1 auto !important;
@@ -811,7 +810,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix DROPDOWN-V8" !important;
+        content: "milnueve-mobile-fix DROPDOWN-V9" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
