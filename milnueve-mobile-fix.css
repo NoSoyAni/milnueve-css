@@ -822,7 +822,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix DROPDOWN-V19" !important;
+        content: "milnueve-mobile-fix DROPDOWN-V180" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
