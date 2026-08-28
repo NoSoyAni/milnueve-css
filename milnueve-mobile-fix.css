@@ -214,6 +214,15 @@
         font-size: 0.85rem !important;
         opacity: 0.75 !important;
     }
+    /* Blindaje anti-bug: mientras el menu movil esta abierto, la ratio-bar
+       no debe ser interactiva (evita el foco que colapsa Torrents). */
+    .top-nav.mobile .top-nav__ratio-bar a,
+    .top-nav:has(> .top-nav__main-menus.mobile) .top-nav__ratio-bar a {
+        pointer-events: none !important;
+        touch-action: none !important;
+        -webkit-user-select: none !important;
+        user-select: none !important;
+    }
 
     /* ---------- BLOQUE DE PERFIL ----------
        Dropdown de avatar, boton "Mi perfil" de ancho completo,
@@ -398,51 +407,6 @@
         padding: 6px !important;
         border: 1px solid rgba(255,255,255,0.08) !important;
     }
-    /* ---------- ACCESOS RÁPIDOS: grid tipo app-icons ----------
-       Bandeja, Notificaciones, Mi perfil, Mi configuración */
-    .top-nav__icon-bar .top-nav__dropdown ul {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        grid-auto-flow: row !important;
-        gap: 8px !important;
-    }
-    .top-nav__icon-bar .top-nav__dropdown ul li {
-        border-top: none !important;
-    }
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/conversations"]),
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/notifications"]),
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(i.fa-user):not(:has(i.fa-envelope)):not(:has(i.fa-bell)),
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/general-settings"]) {
-        grid-column: span 1 !important;
-    }
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/conversations"]) a,
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/notifications"]) a,
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(i.fa-user):not(:has(i.fa-envelope)):not(:has(i.fa-bell)) a,
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/general-settings"]) a {
-        flex-direction: column !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        aspect-ratio: 1 / 1 !important;
-        padding: 6px !important;
-        background: rgba(255,255,255,0.05) !important;
-        border: 1px solid rgba(255,255,255,0.08) !important;
-        border-radius: 10px !important;
-        text-align: center !important;
-        font-size: 0 !important;
-    }
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/conversations"]) i,
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/notifications"]) i,
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(i.fa-user):not(:has(i.fa-envelope)):not(:has(i.fa-bell)) i,
-    .top-nav__icon-bar .top-nav__dropdown ul li:has(a[href*="/general-settings"]) i {
-        font-size: 1.1rem !important;
-        opacity: 0.9 !important;
-        width: auto !important;
-    }
-    /* El resto de items del dropdown ocupan fila completa, en orden normal */
-    .top-nav__icon-bar .top-nav__dropdown ul li:not(:has(a[href*="/conversations"])):not(:has(a[href*="/notifications"])):not(:has(a[href*="/general-settings"])):not(:has(i.fa-user)) {
-        grid-column: 1 / -1 !important;
-    }
-
     .top-nav__main-menus.mobile .top-nav__dropdown ul li,
     .top-nav__icon-bar .top-nav__dropdown ul li {
         width: 100% !important;
@@ -822,7 +786,7 @@
        el navegador esta cargando la version actualizada del CSS y no
        una copia cacheada. Subir el numero en cada cambio futuro. */
     body::before {
-        content: "milnueve-mobile-fix DROPDOWN-V180" !important;
+        content: "milnueve-mobile-fix DROPDOWN-V185" !important;
         position: fixed !important;
         bottom: 4px !important;
         left: 4px !important;
